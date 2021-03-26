@@ -20,11 +20,14 @@
 </form>
 <div id="userInfo"></div>
 <script>
+    const SECRET_USER = "admin"
+    const SECRET_PASSWORD = "password"
     document.querySelector('form.form').addEventListener('submit', function(e) {
         e.preventDefault();
         let x = document.querySelector('form.form').elements;
         const userInfo = document.getElementById("userInfo");
-        userInfo.innerHTML = `Username: ${x['userid'].value} \n "Password ${x['pass'].value}"`
+
+        userInfo.innerHTML =  x['userid'].value === SECRET_USER && x['pass'].value === SECRET_PASSWORD ? "Found!" : "Wrong guess."
     });
 </script>
 </body>
